@@ -1,67 +1,107 @@
-import Link from '@/components/Link'
+import Carousel from '@/components/Carousel'
+import Groups from '@/components/Groups'
+import ServiceTimes from '@/components/ServiceTimes'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
+import Link from 'next/link'
 import { formatDate } from 'pliny/utils/formatDate'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
 
-const MAX_DISPLAY = 5
+const images = [
+  '/static/images/canada/mountains.jpg',
+  '/static/images/canada/toronto.jpg',
+  '/static/images/time-machine.jpg',
+]
 
 export default function Home({ posts }) {
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
+    <section>
+      <div>
+        <h1 className="text-center text-4xl font-bold sm:text-5xl">Quem somos</h1>
+
+        <div className="flex grid-cols-2 flex-col items-center">
+          <p className="py-5 text-justify text-2xl italic">
+            A Igreja do Evangelho Quadrangular anuncia o sacrifício redentor de Jesus Cristo na
+            cruz, como a mensagem central da Bíblia e o centro do propósito de Deus para toda a
+            humanidade. E acredita no poder do Espírito Santo, atuando para curar, libertar e salvar
+            o homem da mesma maneira que agia na igreja primitiva.
           </p>
+
+          <div className="grid w-full max-w-sm grid-cols-2 gap-10 sm:max-w-max sm:grid-cols-4 sm:gap-x-20">
+            <Image
+              src="/static/images/cruz.png"
+              alt="teste"
+              width={50}
+              height={50}
+              className="h-24 w-20 justify-self-center sm:h-32 sm:w-28"
+            />
+            <Image
+              src="/static/images/pomba.png"
+              alt="teste"
+              width={50}
+              height={50}
+              className="h-24 w-20 justify-self-center sm:h-32 sm:w-28"
+            />
+            <Image
+              src="/static/images/calice.png"
+              alt="teste"
+              width={50}
+              height={50}
+              className="h-24 w-20 justify-self-center sm:h-32 sm:w-28"
+            />
+            <Image
+              src="/static/images/coroa.png"
+              alt="teste"
+              width={50}
+              height={50}
+              className="h-24 w-20 justify-self-center sm:h-32 sm:w-28"
+            />
+          </div>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'No posts found.'}
-          {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+
+        <div className="mt-14 flex justify-center">
+          <Link
+            href="/quem-somos"
+            className="rounded-3xl border-4 border-gray-800 px-6 py-4 font-bold uppercase"
+          >
+            Ver Mais
+          </Link>
+        </div>
+
+        <ServiceTimes />
+
+        <h1 className="my-10 text-center text-4xl font-bold sm:text-5xl">Avisos</h1>
+        <Carousel images={images} />
+
+        <h1 className="mt-10 text-center text-4xl font-bold sm:text-5xl">Nosso blog</h1>
+
+        <ul>
+          {posts.slice(0, 3).map((post) => {
+            const { path, date, title, summary, tags } = post
             return (
-              <li key={slug} className="py-12">
-                <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                      </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-gray-900 dark:text-gray-100"
-                            >
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
-                        </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
-                        </div>
-                      </div>
-                      <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read more: "${title}"`}
-                        >
-                          Read more &rarr;
+              <li key={path} className="py-5">
+                <article className="flex flex-col space-y-2 xl:space-y-0">
+                  <dl>
+                    <dt className="sr-only">Published on</dt>
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <time dateTime={date} suppressHydrationWarning>
+                        {formatDate(date, siteMetadata.locale)}
+                      </time>
+                    </dd>
+                  </dl>
+                  <div className="space-y-3">
+                    <div>
+                      <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                        <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
+                          {title}
                         </Link>
+                      </h2>
+                      <div className="flex flex-wrap">
+                        {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                       </div>
+                    </div>
+                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                      {summary}
                     </div>
                   </div>
                 </article>
@@ -69,23 +109,18 @@ export default function Home({ posts }) {
             )
           })}
         </ul>
-      </div>
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
+
+        <div className="flex justify-center">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="All posts"
+            className="rounded-3xl border-4 border-gray-800 px-6 py-4 font-bold uppercase"
           >
-            All Posts &rarr;
+            Ver Mais
           </Link>
         </div>
-      )}
-      {siteMetadata.newsletter?.provider && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
-        </div>
-      )}
-    </>
+
+        <Groups />
+      </div>
+    </section>
   )
 }

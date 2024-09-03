@@ -1,13 +1,14 @@
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
 import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
+import Logo from './Logo'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10'
+  let headerClass =
+    'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10 px-2 sm:px-10'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
@@ -16,9 +17,7 @@ const Header = () => {
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
-          <div className="mr-3">
-            <Logo />
-          </div>
+          <Logo />
           {typeof siteMetadata.headerTitle === 'string' ? (
             <div className="hidden h-6 text-2xl font-semibold sm:block">
               {siteMetadata.headerTitle}
@@ -29,7 +28,7 @@ const Header = () => {
         </div>
       </Link>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-        <div className="no-scrollbar hidden max-w-40 items-center space-x-4 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
+        <div className="no-scrollbar hidden max-w-40 items-center space-x-4 overflow-x-auto sm:space-x-6 xl:flex xl:max-w-max">
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (

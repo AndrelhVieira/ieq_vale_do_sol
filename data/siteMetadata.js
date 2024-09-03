@@ -1,28 +1,24 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
-  language: 'en-us',
-  theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  title: '26ª IEQ - Vale do Sol',
+  author: '26ª IEQ - Vale do Sol',
+  headerTitle: '26ª IEQ - Vale do Sol',
+  // TODO: Validar descrição
+  description: 'Site oficial da 26ª IEQ - Vale do Sol, promovendo fé, amor e comunhão cristã.',
+  language: 'pt-BR',
+  theme: 'light', // system, dark or light
+  siteUrl: 'https://ieqvaledosol.com.br',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
-  mastodon: 'https://mastodon.social/@mastodonuser',
+  // TODO: Adicionar email
   email: 'address@yoursite.com',
-  github: 'https://github.com',
-  x: 'https://twitter.com/x',
-  // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
-  locale: 'en-US',
+  facebook: 'https://www.facebook.com/ieqvaledosol/?locale=pt_BR',
+  youtube: 'https://www.youtube.com/channel/UCHJ0SVQnurB_TVsc9vybg8g',
+  phone: '(41) 3378 4522',
+  instagram: 'https://www.instagram.com/ieq_valedosol/',
+  locale: 'pt-BR',
   // set to true if you want a navbar fixed to the top
-  stickyNav: false,
+  stickyNav: true,
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

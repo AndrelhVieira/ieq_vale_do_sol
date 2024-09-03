@@ -35,14 +35,6 @@ export default function Footer() {
             <p className="text-xl">{siteMetadata.phone}</p>
           </div>
         </div>
-        <iframe
-          title="teste"
-          width="600"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDzCFVqYvTIrDKuQD7-5Th3PWJwZmPwpvI"
-        />
       </div>
 
       <div className="mt-16 flex flex-col items-center">

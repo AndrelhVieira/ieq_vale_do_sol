@@ -30,12 +30,18 @@ const serviceTimesAssets: ServiceTimesType[] = [
   },
 ]
 
-const ServiceTimes = () => {
+type ServiceTimesPropsType = {
+  showAll?: boolean
+}
+
+const ServiceTimes = ({ showAll = false }: ServiceTimesPropsType) => {
+  const serviceToShow = showAll ? serviceTimesAssets : serviceTimesAssets.slice(0, 3)
+
   return (
-    <section className="mt-10 flex flex-col gap-10 p-10">
+    <section className={`flex flex-col gap-10 p-10 ${!showAll ? 'mt-10' : null}`}>
       <h1 className="text-center text-4xl font-bold sm:text-5xl">Horários dos cultos</h1>
 
-      {serviceTimesAssets.map((item, index) => (
+      {serviceToShow.map((item, index) => (
         <div
           key={item.imagePath}
           className={`flex items-center gap-10 ${index % 2 !== 0 ? 'flex-row-reverse' : null}`}
@@ -56,14 +62,16 @@ const ServiceTimes = () => {
         </div>
       ))}
 
-      <div className="flex justify-center">
-        <Link
-          href="/horarios"
-          className="rounded-3xl border-4 border-gray-800 px-6 py-4 font-bold uppercase"
-        >
-          Ver Mais
-        </Link>
-      </div>
+      {!showAll ? (
+        <div className="flex justify-center">
+          <Link
+            href="/horarios"
+            className="rounded-3xl border-4 border-gray-800 px-6 py-4 font-bold uppercase"
+          >
+            Ver Mais
+          </Link>
+        </div>
+      ) : null}
     </section>
   )
 }

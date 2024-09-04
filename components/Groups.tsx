@@ -17,8 +17,8 @@ const serviceTimesAssets: GroupsType[] = [
     text: 'Venha adorar e buscar a cristo com Jovens e Adolescentes, juntos e conectados com o REINO.',
     imagePath: '/static/images/pomba.png',
     socialMedia: [
-      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={10} key={1} />,
-      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={10} key={2} />,
+      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={16} key={1} />,
+      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={16} key={2} />,
     ],
   },
   {
@@ -26,8 +26,8 @@ const serviceTimesAssets: GroupsType[] = [
     text: 'Venha adorar e buscar a cristo com Jovens e Adolescentes, juntos e conectados com o REINO.',
     imagePath: '/static/images/pomba.png',
     socialMedia: [
-      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={10} key={1} />,
-      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={10} key={2} />,
+      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={16} key={1} />,
+      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={16} key={2} />,
     ],
   },
   {
@@ -35,8 +35,8 @@ const serviceTimesAssets: GroupsType[] = [
     text: 'Venha adorar e buscar a cristo com Jovens e Adolescentes, juntos e conectados com o REINO.',
     imagePath: '/static/images/pomba.png',
     socialMedia: [
-      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={10} key={1} />,
-      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={10} key={2} />,
+      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={16} key={1} />,
+      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={16} key={2} />,
     ],
   },
   {
@@ -44,14 +44,18 @@ const serviceTimesAssets: GroupsType[] = [
     text: 'Venha adorar e buscar a cristo com Jovens e Adolescentes, juntos e conectados com o REINO.',
     imagePath: '/static/images/pomba.png',
     socialMedia: [
-      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={10} key={1} />,
-      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={10} key={2} />,
+      <SocialIcon kind="facebook" href={siteMetadata.facebook} size={16} key={1} />,
+      <SocialIcon kind="youtube" href={siteMetadata.youtube} size={16} key={2} />,
     ],
   },
 ]
 
-const Groups = () => {
-  return (
+type GroupsPropsType = {
+  showAll?: boolean
+}
+
+const Groups = ({ showAll = false }: GroupsPropsType) => {
+  const renderSimplificated = () => (
     <section className="mt-10 flex flex-col gap-10 p-10">
       <h1 className="text-center text-4xl font-bold sm:text-5xl">Ministérios</h1>
 
@@ -60,7 +64,7 @@ const Groups = () => {
           <div key={item.imagePath} className={`flex flex-col items-center gap-10`}>
             <Image
               src={item.imagePath}
-              alt="Imagem de culto em IEQ Vale do Sol"
+              alt="Imagem de ministério em IEQ Vale do Sol"
               width={500}
               height={500}
               className="h-48 w-48 rounded-lg"
@@ -83,6 +87,39 @@ const Groups = () => {
       </div>
     </section>
   )
+
+  const renderAllGroups = () => (
+    <section>
+      <h1 className="text-center text-4xl font-bold sm:text-5xl">Ministérios</h1>
+
+      <p className="mb-10 mt-5 text-center text-lg font-semibold">
+        Estes são os grupos e ministérios que fazem parte da nossa igreja.
+      </p>
+
+      <div className="flex flex-col">
+        {serviceTimesAssets.map((item) => (
+          <div key={item.imagePath} className="my-10 flex flex-col items-center justify-center ">
+            <Image
+              src={item.imagePath}
+              alt="Imagem de ministério em IEQ Vale do Sol"
+              width={500}
+              height={500}
+              className="h-48 w-48 rounded-lg"
+            />
+            <p className="mb-4 mt-8 text-2xl font-bold">{item.title}</p>
+            <p className="font-light">{item.text}</p>
+
+            <div className="mt-5 flex gap-10">{item.socialMedia.map((media) => media)}</div>
+
+            <hr className="border-1 mt-10 w-full border-gray-300" />
+            <hr className="border-1 mt-1 w-full border-gray-300" />
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+
+  return showAll ? renderAllGroups() : renderSimplificated()
 }
 
 export default Groups

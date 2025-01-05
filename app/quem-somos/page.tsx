@@ -77,9 +77,9 @@ const QuemSomos = () => {
         Símbolos e significados da IEQ
       </p>
 
-      <div className="px-48">
+      <div className="lg:px-48">
         {symbolsAssets.map((item) => (
-          <div key={item.imagePath} className="my-10 flex gap-20">
+          <div key={item.imagePath} className="my-10 flex flex-col items-center gap-10 lg:flex-row">
             <Image
               src={item.imagePath}
               alt={`Imagem do símbolo Quadrangular - ${item.label}`}

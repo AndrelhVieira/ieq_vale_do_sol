@@ -44,7 +44,7 @@ const ServiceTimes = ({ showAll = false }: ServiceTimesPropsType) => {
       {serviceToShow.map((item, index) => (
         <div
           key={item.imagePath}
-          className={`flex items-center gap-10 ${index % 2 !== 0 ? 'flex-row-reverse' : null}`}
+          className={`flex flex-col-reverse items-center gap-10 xl:flex-row ${index % 2 !== 0 ? 'xl:flex-row-reverse' : null}`}
         >
           <div>
             <p className="text-3xl font-bold">{item.title}</p>

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://unpkg.com/leaflet/dist/leaflet.css');
+
 .task-list-item::before {
   @apply hidden;
 }
@@ -57,4 +59,8 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+
+* {
+  color: #373435;
 }

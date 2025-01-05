@@ -14,6 +14,13 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    colors: {
+      'custom-dark-primary': '#373435',
+      'custom-dark-secondary': '#9B9698',
+      'custom-error': '#E00109',
+      'custom-alert': '#FDD000',
+      ...colors,
+    },
     extend: {
       lineHeight: {
         11: '2.75rem',

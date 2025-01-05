@@ -6,12 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
 import Link from 'next/link'
 import { formatDate } from 'pliny/utils/formatDate'
-
-const images = [
-  '/static/images/canada/mountains.jpg',
-  '/static/images/canada/toronto.jpg',
-  '/static/images/time-machine.jpg',
-]
+import { CAROUSEL_IMAGES } from '@/data/CarouselImages'
 
 export default function Home({ posts }) {
   return (
@@ -71,7 +66,7 @@ export default function Home({ posts }) {
         <ServiceTimes />
 
         <h1 className="my-10 text-center text-4xl font-bold sm:text-5xl">Avisos</h1>
-        <Carousel images={images} />
+        <Carousel images={CAROUSEL_IMAGES} />
 
         <h1 className="mt-10 text-center text-4xl font-bold sm:text-5xl">Nosso blog</h1>
 
@@ -112,7 +107,7 @@ export default function Home({ posts }) {
 
         <div className="flex justify-center">
           <Link
-            href="/blog"
+            href="/mensagens"
             className="rounded-3xl border-4 border-gray-800 px-6 py-4 font-bold uppercase"
           >
             Ver Mais

@@ -1,4 +1,5 @@
-import Link from './Link'
+'use client'
+
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 
@@ -7,7 +8,7 @@ import { FaPhone } from 'react-icons/fa'
 export default function Footer() {
   return (
     <footer className="my-10">
-      <div className="flex gap-10">
+      <div>
         <div>
           <h2 className="text-center text-4xl font-bold sm:text-5xl">Siga-nos</h2>
           <p className="py-3 text-center text-xl font-semibold">

@@ -1483,7 +1483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentlayer/core@npm:latest":
+"@contentlayer/core@npm:0.3.4, @contentlayer/core@npm:^0.3.4":
   version: 0.3.4
   resolution: "@contentlayer/core@npm:0.3.4"
   dependencies:
@@ -1512,7 +1512,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentlayer/utils@npm:0.3.4, @contentlayer/utils@npm:latest":
+"@contentlayer/utils@npm:0.3.4, @contentlayer/utils@npm:^0.3.4":
   version: 0.3.4
   resolution: "@contentlayer/utils@npm:0.3.4"
   dependencies:
@@ -4630,7 +4630,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentlayer2@npm:0.4.6, contentlayer2@npm:^0.4.6":
+"contentlayer2@npm:^0.4.6":
   version: 0.4.6
   resolution: "contentlayer2@npm:0.4.6"
   dependencies:
@@ -9731,7 +9731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-contentlayer2@npm:0.4.6, next-contentlayer2@npm:^0.4.6":
+"next-contentlayer2@npm:^0.4.6":
   version: 0.4.6
   resolution: "next-contentlayer2@npm:0.4.6"
   dependencies:
@@ -9743,6 +9743,21 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 7169af27a94e609c6995b6993615233ba4fd502376c6532b10b57fc5ff368ec903931ec0b1b785e74b5b495175d30d03e3151e32e8804728473596c4f9f435a8
+  languageName: node
+  linkType: hard
+
+"next-contentlayer@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "next-contentlayer@npm:0.3.4"
+  dependencies:
+    "@contentlayer/core": 0.3.4
+    "@contentlayer/utils": 0.3.4
+  peerDependencies:
+    contentlayer: 0.3.4
+    next: ^12 || ^13
+    react: "*"
+    react-dom: "*"
+  checksum: fd741aa5fcefe545dedbe34780e05a18fd2ce7b3620e5d528358dfe3152fa9d795fbc68738ffa6d001db1c7de9e0500f06bc6600dfdd37b4f831158f9c6f0832
   languageName: node
   linkType: hard
 
@@ -12338,8 +12353,8 @@ __metadata:
   resolution: "tailwind-nextjs-starter-blog@workspace:."
   dependencies:
     "@algolia/client-search": ^5.20.0
-    "@contentlayer/core": latest
-    "@contentlayer/utils": latest
+    "@contentlayer/core": ^0.3.4
+    "@contentlayer/utils": ^0.3.4
     "@headlessui/react": 1.7.19
     "@next/bundle-analyzer": 14.2.3
     "@svgr/webpack": ^8.0.1
@@ -12352,7 +12367,6 @@ __metadata:
     algoliasearch: ^5.20.0
     autoprefixer: ^10.4.13
     body-scroll-lock: ^4.0.0-beta.0
-    contentlayer2: 0.4.6
     cross-env: ^7.0.3
     emailjs-com: ^3.2.0
     esbuild: 0.20.2
@@ -12368,7 +12382,7 @@ __metadata:
     leaflet: latest
     lint-staged: ^13.0.0
     next: 14.2.3
-    next-contentlayer2: 0.4.6
+    next-contentlayer: ^0.3.4
     next-themes: ^0.3.0
     pliny: 0.2.1
     postcss: ^8.4.24
